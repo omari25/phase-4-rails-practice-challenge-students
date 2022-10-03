@@ -7,13 +7,13 @@ class StudentsController < ApplicationController
 
     def create
         student = Student.create!(student_params)
-        render json: student, include: :instructor, status: :created
+        render json: student, status: :created
     end
 
     def update
         student = Student.find_by(id: params[:id])
         student.update!(student_params)
-        render json: student, include: :instructor, status: :accepted
+        render json: student, status: :accepted
     end
 
     def destroy
